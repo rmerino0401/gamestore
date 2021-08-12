@@ -32,8 +32,8 @@ export default function ListaProductosView() {
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>descripcion</th>
-                        <th>categia</th>
+                        <th>Descripcion</th>
+                        <th>Categoria</th>
                         <th>Clase</th>
                         <th>Stock</th>
                         <th>Precio 1</th>

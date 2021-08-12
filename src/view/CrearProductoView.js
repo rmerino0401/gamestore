@@ -37,7 +37,7 @@ export default function CrearProductoView() {
                 icon:'success',
                 title:'Producto creado!!',
                 showConfirmButton:false,
-                timer:3000
+                timer:1000
             })
             history.push('/')
 

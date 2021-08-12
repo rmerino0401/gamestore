@@ -57,7 +57,7 @@ export default function EditarProductoView() {
             icon:"success",
             title:"Producto editado con éxito",
             showConfirmButton:false,
-            timer:3000
+            timer:700
         })
         history.push('/')
     }
