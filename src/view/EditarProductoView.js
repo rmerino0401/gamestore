@@ -33,7 +33,7 @@ export default function EditarProductoView() {
 
     useEffect(()=>{
         getProducto()
-    })
+    },[])
 
     const actualizarInput = (e)=>{
         setValue({
@@ -42,8 +42,9 @@ export default function EditarProductoView() {
         })
     }
 
-    const manejarSubmit = () => {
-
+    const manejarSubmit = async (e) => {
+        e.preventDefault()
+        await editarProducto(value, id)
     }
 
     return (
