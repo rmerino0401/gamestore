@@ -1,5 +1,5 @@
-import ListaProductosView from "./view/ListaProductosView"
-import InicioView from "./view/InicioView"
+import { BrowserRouter as Router, Switch } from "react-router-dom"
+import Routes from "./Routes"
 
 export default function App() {
   return (
@@ -7,10 +7,17 @@ export default function App() {
       <header>Esta es la cabezera </header>
       <nav>Este es el NAV</nav>
       <section> 
-        <h1>Hola Mundo (RamaV)</h1>
+        {/* <h1>Hola Mundo (RamaV)</h1> */}
         
-        <InicioView/>
-        <ListaProductosView/>
+        <Router>
+          <div className="container p-3">
+            <Switch>
+              <Routes/>
+            </Switch>
+          </div>
+        </Router>
+        
+        
       </section>
       <footer>Esto es el footer</footer>
     </div>

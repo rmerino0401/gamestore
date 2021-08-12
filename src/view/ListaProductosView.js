@@ -1,4 +1,5 @@
 import { useState, useEffect} from "react"
+import { Link } from "react-router-dom"
 import { obtenerProductos } from "../services/productosService"
 
 export default function ListaProductosView() {
@@ -22,9 +23,9 @@ export default function ListaProductosView() {
     //en los return mostraremos todo el contenido de la vista HTML + Bootstrap
     return (
         <div>
-            <button className="btn btn-primary btn-lg my-2">
+            <Link to="/new" className="btn btn-primary btn-lg my-2">
                 Crear Producto
-            </button>
+            </Link>
 
             <h2>Lista de Productos</h2>
             <table className="table">
@@ -51,9 +52,11 @@ export default function ListaProductosView() {
                             <td>{producto.prod_pre1}</td>
                             <td>{producto.prod_pre2}</td>
                             <td>
-                                <button className="btn btn-warning btn-sm">
+                                <Link className="btn btn-warning btn-sm"
+                                 to={`/update/${producto.prod_id}`}
+                                 >
                                     <i className="fas fa-edit"></i>
-                                </button>
+                                </Link>
                             </td>
                         </tr>
                     ))}
