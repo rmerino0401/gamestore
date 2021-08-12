@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { useHistory } from 'react-router-dom'
+import Swal from "sweetalert2"
+
 import { editarProducto, obtenerProductosPorID } from "../services/productosService"
 import FormProducto from "../components/FormProducto"
+
+
 
 export default function EditarProductoView() {
     
@@ -21,7 +26,8 @@ export default function EditarProductoView() {
     
     // aqui obtenemos el ID del producto por la URL
     const {id} = useParams()
-
+    const history = useHistory()
+    // aqui obtenemos los productos que se encuentran guardados y se mostraran en los input
     const getProducto = async ()=>{
         try {
             const productoObtenido = await obtenerProductosPorID(id)
@@ -31,9 +37,11 @@ export default function EditarProductoView() {
         }
     }
 
+    // Ejecutar el estado 
     useEffect(()=>{
         getProducto()
     },[])
+
 
     const actualizarInput = (e)=>{
         setValue({
@@ -45,7 +53,15 @@ export default function EditarProductoView() {
     const manejarSubmit = async (e) => {
         e.preventDefault()
         await editarProducto(value, id)
+        await Swal.fire({
+            icon:"success",
+            title:"Producto editado con éxito",
+            showConfirmButton:false,
+            timer:3000
+        })
+        history.push('/')
     }
+
 
     return (
         <div>

@@ -34,10 +34,10 @@ export default function CrearProductoView() {
         try {
             await crearProductos(value)
             await Swal.fire({
-                icon:'Success',
-                title:'Producto Creado !!',
-                showConfirmButton: false,
-                timer:1000
+                icon:'success',
+                title:'Producto creado!!',
+                showConfirmButton:false,
+                timer:3000
             })
             history.push('/')
 
@@ -50,7 +50,9 @@ export default function CrearProductoView() {
     return (
         <div>
           <h1>Crear Producto</h1>
-          <FormProducto value={value} actualizarInput={actualizarInput} manejarSubmit= {manejarSubmit}/>
+          <FormProducto value={value} 
+          actualizarInput={actualizarInput} 
+          manejarSubmit= {manejarSubmit}/>
         </div>
     )
 }
