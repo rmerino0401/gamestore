@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 export default function GroupProducts({ productos }) {
   console.log(productos)
   return (
+   
       <div className="container">
+         <h1>LISTA DE PRODUCTOS 2021</h1>
         <div className="row mt-3">
           {productos.map((prod, i) => (
             <div className="col-6 col-lg-3" key={i}>
-
+              
               <Link className="card mb-4" to={`/detalle/${prod.prod_id}`}>
                 <img
                   src={prod.prod_img}
