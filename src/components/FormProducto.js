@@ -1,4 +1,8 @@
-export default function FormProducto({value, actualizarInput, manejarSubmit}) {
+import {useRef} from "react"
+let img
+
+export default function FormProducto({value, actualizarInput, manejarSubmit, manejarImagen}) {
+   const inputFile = useRef()
     return (
         <div>
             <form onSubmit={(e)=>{manejarSubmit(e)}}>
@@ -12,7 +16,10 @@ export default function FormProducto({value, actualizarInput, manejarSubmit}) {
                 <div className="mb-3"><label className="form-label">Precio 3: <input type="number" className="form-control" name="prod_pre3" value={value.prod_pre3} onChange={(e) => {actualizarInput(e)}} /></label></div>   
                 <div className="mb-3"><label className="form-label">Precio 4: <input type="number" className="form-control" name="prod_pre4" value={value.prod_pre4} onChange={(e) => {actualizarInput(e)}} /></label></div>   
                 <div className="mb-3"><label className="form-label">Precio 5: <input type="number" className="form-control" name="prod_pre5" value={value.prod_pre5} onChange={(e) => {actualizarInput(e)}} /></label></div>            
-                <div className="mb-3"><button className="btn btn-primary btn-lg" type="submit">Guardar</button></div>
+                <div className="mb-3"><label className="form-label">Imagen 
+                <input type="file" className="form-control" ref={inputFile}
+                onChange={(e)=>{manejarImagen(e)}}/></label></div>
+               <div className="mb-3"><button className="btn btn-primary btn-lg" type="submit">Guardar</button></div>
             </form>
         </div>
     )

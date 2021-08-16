@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div>
       <header>Esta es la cabezera </header>
-      <nav>Este es el NAV</nav>
+      <nav>Este es el Navegador</nav>
       <section> 
         {/* <h1>Hola Mundo (RamaV)</h1> */}
         
