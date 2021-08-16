@@ -3,13 +3,19 @@ import {Route} from "react-router-dom" // La desestructuración de los atributos
 import ListaProductosView from "./view/ListaProductosView"
 import CrearProductoView from "./view/CrearProductoView"
 import EditarProductoView from "./view/EditarProductoView"
-
+import ProductoView from "./view/ProductoView"
+import PortadaView from "./view/PortadaView"
 export default function Routes() {
     return (
         <div>
-            <Route path="/" exact component={ListaProductosView}/>
+            {/* //Rutas de Victor */}
+            <Route path="/Admin" exact component={ListaProductosView}/>
             <Route path="/new" exact component={CrearProductoView}/>
             <Route path="/update/:id" exact component={EditarProductoView}/>
+            {/* // Rutas de Roberto */}
+            <Route path="/" exact component={PortadaView} />
+            <Route path="/detalle/:id" exact component={ProductoView} />
+        
         </div>
     )
 }
