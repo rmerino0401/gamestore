@@ -49,8 +49,8 @@ export default function ListaProductosView() {
                             <td>{producto.prod_cat}</td>
                             <td>{producto.prod_cla}</td>
                             <td>{producto.prod_stock}</td>
-                            <td>{producto.prod_pre1}</td>
-                            <td>{producto.prod_pre2}</td>
+                            <td width='10%'>{`S/. ${producto.prod_pre1}`}</td>
+                            <td width='10%'>{`S/. ${producto.prod_pre2}`}</td>
                             <td>
                                 <Link className="btn btn-warning btn-sm"
                                  to={`/update/${producto.prod_id}`}
