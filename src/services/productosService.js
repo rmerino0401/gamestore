@@ -3,7 +3,6 @@ import axios from "axios";
 
 const URL_PROD = `${process.env.REACT_APP_API}productos`
 
-
 // realizamos un get a la tabla productos
 const obtenerProductos = async () => {
     try {
@@ -15,7 +14,6 @@ const obtenerProductos = async () => {
 }
 
 // Funcion para crear los productos 
-
 const crearProductos = async (nuevoProducto)=>{
     try {
         const headers= {
@@ -28,10 +26,7 @@ const crearProductos = async (nuevoProducto)=>{
     }
 }
 
-
-
 // Actualizar productos 
-
 const obtenerProductosPorID = async (id) => {
     try {
         let {data} = await axios.get(`${URL_PROD}/${id}`)
@@ -42,15 +37,15 @@ const obtenerProductosPorID = async (id) => {
 }
 
 // Roberto Lista Productos 
-const obtenerProductoPorId = async(id) => {
-    try {
-        let { data } = await axios.get(`${URL}/${id}`)
-        return data
-    } catch (error) {
-        throw error
-    }
+// const obtenerProductoPorId = async(id) => {
+//     try {
+//         let { data } = await axios.get(`${URL}/${id}`)
+//         return data
+//     } catch (error) {
+//         throw error
+//     }
     
-}
+// }
 
 const editarProducto = async (productoEditado, id )=> {
     try {
@@ -68,6 +63,6 @@ export {
     obtenerProductos,
     crearProductos,
     obtenerProductosPorID,
-    editarProducto,
-    obtenerProductoPorId
+    editarProducto
+    // obtenerProductoPorId
 }
