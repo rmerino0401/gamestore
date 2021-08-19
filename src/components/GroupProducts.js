@@ -6,7 +6,7 @@ export default function GroupProducts({ productos }) {
   return (
    
       <div className="container">
-         <h1>LISTA DE PRODUCTOS 2021</h1>
+    
         <div className="row mt-3">
           {productos.map((prod, i) => (
             <div className="col-6 col-lg-3" key={i}>
