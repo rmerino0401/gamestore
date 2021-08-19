@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function GroupProducts({ productos}) {
   
   return (
+   
       <div className="container">
         <h1>Productos 2021</h1>
         <div className="row mt-3">

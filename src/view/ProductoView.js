@@ -17,15 +17,14 @@ export default function ProductoView() {
             //Detenemos el Spinner
             setCargando(false)
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     }
      // Ejecutar el estado del producto 
      useEffect(()=>{
         getProducto()
     },[])
-
-
+    
     return (
         <div>
             {cargando?(<Loading />) : 
@@ -55,4 +54,4 @@ export default function ProductoView() {
             )}   
         </div>
     )
-}
+           }
