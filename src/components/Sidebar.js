@@ -5,7 +5,7 @@ const Sidebar = ()=>{
     return (
         <div className="sidebar bg-light">
             <ul>
-                <li><NavLink to="/" exact activeClassName="active" className=" py-2 w-100 d-inline-block"><icons.FaHome className="me-2"/> Inicio</NavLink></li>
+                <li><NavLink to="/Inicio" exact activeClassName="active" className=" py-2 w-100 d-inline-block"><icons.FaHome className="me-2"/> Inicio</NavLink></li>
                 <li><NavLink to="/new" exact activeClassName="active" className=" py-2 w-100 d-inline-block"><icons.FaCube className="me-2"/> Productos</NavLink></li>
                 <li><NavLink to="/List" exact activeClassName="active" className=" py-2 w-100 d-inline-block"><icons.FaCubes className="me-2"/> Productos Detalles</NavLink></li>
                 <li><NavLink to="/Pedidos" exact activeClassName="active" className=" py-2 w-100 d-inline-block"><icons.FaBox className="me-2"/> Pedidos</NavLink></li>

@@ -22,7 +22,7 @@ const NavbarHome = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" className="Navbar-2">
         <NavbarBrand href="/">GameStore</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

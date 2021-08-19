@@ -1,45 +1,36 @@
 import { BrowserRouter as Router, Switch } from "react-router-dom"
 import {Route} from "react-router-dom"
 import Routes from "./Routes"
-import './App.scss'
-// Importamos el componente Navbar 
-import NavbarHome from "./components/Navbar"
-// Importamos Sidebar
-import Sidebar from "./components/Sidebar"
-// Paginas de Content 
-import ListaProductosView from "./view/ListaProductosView"
-import CrearProductoView from "./view/CrearProductoView"
-import EditarProductoView from "./view/EditarProductoView"
-import InicioView from "./view/InicioView"
-
+import NavTop from "./components/NavTop"
 
 export default function App() {
   return (
     <div>
-        <Router>
-          {/* Cabecera */}
-          
-
+    {/* <Router>
           <div className="flex">
-            <Sidebar />
-            
+            <Sidebar />  
             <div className="content w-100">
               <NavbarHome />
-              <Route path="/" exact component={InicioView}/>
+              <Route path="/" exact component={PortadaView} />
+              <Route path="/detalle/:id" exact component={ProductoView} />
+              <Route path="/Inicio" exact component={InicioView}/>
               <Route path="/List" exact component={ListaProductosView}/>
               <Route path="/new" exact component={CrearProductoView}/>
               <Route path="/update/:id" exact component={EditarProductoView}/>
             </div>
+          </div> 
+        </Router>*/}
 
-          </div>
 
-          {/* Ya no se utiliza el archivo Routes ya que se esta llamando todo desde App.js */}
-          {/* <Switch>
-            <Routes/>
-          </Switch> */}
-
-        </Router>
-    </div>
+        <Router>
+          <div className="container p-3">
+            <NavTop/>
+              <Switch>
+                <Routes/>
+              </Switch>
+          </div> 
+        </Router> 
+  </div>
   )
 }
 
