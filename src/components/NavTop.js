@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 export default function NavTop() {
     return (
@@ -12,6 +13,12 @@ export default function NavTop() {
         <Nav.Link href="#link">Consolas</Nav.Link>
         <Nav.Link href="#link">Juegos</Nav.Link>
         <Nav.Link href="#link">Accesorios</Nav.Link>
+        {/* Llamamos a ProductosView */}
+        <Nav.Link>
+          <Link to="/productos">Productos
+          </Link>
+        </Nav.Link>
+
         <NavDropdown title="Categorías" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Acción</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Aventura</NavDropdown.Item>
