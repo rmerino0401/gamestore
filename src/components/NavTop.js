@@ -25,7 +25,7 @@ export default function NavTop() {
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Novedades</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link><Link to="/Admin">Iniciar Sesion</Link></Nav.Link>
+        <Nav.Link><Link to="/login">Iniciar Sesion</Link></Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

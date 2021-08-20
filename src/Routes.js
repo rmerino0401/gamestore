@@ -9,7 +9,7 @@ import ListaProductosView from "./view/ListaProductosView"
 import CrearProductoView from "./view/CrearProductoView"
 import EditarProductoView from "./view/EditarProductoView"
 import InicioView from "./view/InicioView"
-
+import LoginView from "./view/LoginView"
 
 // paginas Roberto
 import ProductoView from "./view/ProductoView"
@@ -25,10 +25,11 @@ export default function Routes() {
             <Route path="/productos" exact component={ProductosView} />
 
             {/* Lado Administrativo */}
+            <Route path="/login" exact component={LoginView} />
             <div className="flex">
-                <Sidebar />  
+                {/* <Sidebar />   */}
                 <div className="content w-100">
-                <NavbarHome />
+                {/* <NavbarHome /> */}
                     <Route path="/Inicio" exact component={InicioView}/>
                     <Route path="/List" exact component={ListaProductosView}/>
                     <Route path="/new" exact component={CrearProductoView}/>

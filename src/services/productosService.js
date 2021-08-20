@@ -3,16 +3,26 @@ import axios from "axios";
 import { storage } from "../config/Firebase";
 
 const URL_PROD = `${process.env.REACT_APP_API}productos`
-
+ 
 // realizamos un get a la tabla productos
-const obtenerProductos = async () => {
+const obtenerProductos = async (busqueda="") => {
     try {
-        let {data} = await axios.get(URL_PROD)
+        let {data} = await axios.get(`${URL_PROD}?search=${busqueda}`)
         return data
     } catch (error) {
         throw error
     }
 }
+
+// realizamos un get a la tabla productos
+// const obtenerProductos = async (busqueda) => {
+//     try {
+//         let {data} = await axios.get(URL_PROD)
+//         return data
+//     } catch (error) {
+//         throw error
+//     }
+// }
 
 // Funcion para crear los productos 
 const crearProductos = async (nuevoProducto)=>{
