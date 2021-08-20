@@ -1,7 +1,10 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import { carritoContext } from "../context/carritoContext"
 import { useParams } from 'react-router-dom'
 import { obtenerProductoPorId } from '../services/productosService'
 import Loading from '../components/Loading'
+import Swal from 'sweetalert2'
+import { useHistory } from 'react-router'
 
 export default function ProductoView() {
     const [producto, setProducto] = useState({})
@@ -9,6 +12,13 @@ export default function ProductoView() {
 
     const { id } = useParams()
 // aqui desestructuramos useparams y obtenemos el prod unitario por id
+
+    const history = useHistory()
+
+//con usecontext accedemos a la info compartida en el context
+const {anadirACarrito} = useContext(carritoContext)
+
+
 
     const getProducto = async () => {
         try {
@@ -20,9 +30,25 @@ export default function ProductoView() {
         }
     }
 
+    const anadirACarritoContext = async () => {
+        anadirACarrito(producto)
+        const resultado = await Swal.fire({
+            icon:'success',
+            title: 'producto añadido!',
+            showConfirmButton:true,
+            confirmButtonText:'Quiero compras más',
+            denyButtonText:'Ir a carrito'
+        })
+        if(resultado.isConfirmed){
+            history.push('/')
+        }else if(resultado.isDenied){
+            history.push('/Carrito')
+        }
+    }
+
     useEffect(() => {
         getProducto()
-    },[])
+    }, [])
     
     return (
         <div>
@@ -47,6 +73,14 @@ export default function ProductoView() {
                                  className="fw-bold">
                                      S/ {producto.prod_pre1}
                                  </span>
+
+                                <button className="btn btn-indigo btn-lg">
+                                    onClick={anadirACarritoContext}
+            
+                                    <i className="fas fa shopping-cart me-2"/>
+                                    Añadir a Carrito
+                                </button>
+
                              </div>
                      </div>
                   </div>
@@ -55,3 +89,5 @@ export default function ProductoView() {
             </div>    
     )
            }
+        //    la funcion 'anadirACarritoContext' se va a ejecutar cuando le demos clic al botón de añadir a carrito
+        // 

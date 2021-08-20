@@ -15,7 +15,7 @@ export default function Loading() {
         }}>
               
         <i
-        className="fas fa-spinner fa-spin fa-6x"
+        className="fas fa-gamepad fa-spin fa-6x"
         style={{            
             color:'slateblue',
             position: 'absolute',
