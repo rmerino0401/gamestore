@@ -1,16 +1,20 @@
-import {useContext} from 'react'
-import { carritoContext } from '../context/carritoContext'
+import { useContext } from "react"
+import { CarritoContext } from "../context/carritoContext"
 
 export default function CarritoView() {
 
-    const { carrito } =useContext(carritoContext)
+    const { carrito } = useContext(CarritoContext)
+ 
+    
+        
+
 
     return (
         <div className="container">
             <div className="my-4 text-center">
                 <h1 className="fw-bold">
                     <i className="fas fa-shopping-cart me-3"/>
-                    Estás a un paso de completar tu compra
+                    Carrito de Compras
                 </h1>
             </div>
 
@@ -25,18 +29,17 @@ export default function CarritoView() {
                 </thead>
                 <tbody>
                     {carrito.map((prod, i) => (
+                        
+                       
                         <tr key={i}>
-                        <td>{prod.prod_nom}</td>
-                        <td>{prod.cantidad}</td>
-                        <td>{prod.prod_pre1}</td>
-                        <td>S/ {prod.cantidad * prod.prod_pre1}</td>
+                            <td>{prod.prod_nom}</td>
+                            <td>{prod.cantidad}</td>
+                            <td>S/ {prod.prod_pre1}</td>
+                            <td>S/ {prod.cantidad * prod.prod_pre1}</td>
                         </tr>
-
-                        ))}
+                    ))}
                 </tbody>
-
             </table>
-
         </div>
     )
 }

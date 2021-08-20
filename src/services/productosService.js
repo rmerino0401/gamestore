@@ -1,17 +1,28 @@
 // Desde aqui proveeremos la data de las tablas o database
 import axios from "axios";
+import { storage } from "../config/Firebase";
 
 const URL_PROD = `${process.env.REACT_APP_API}productos`
-
+ 
 // realizamos un get a la tabla productos
-const obtenerProductos = async () => {
+const obtenerProductos = async (busqueda="") => {
     try {
-        let {data} = await axios.get(URL_PROD)
+        let {data} = await axios.get(`${URL_PROD}?search=${busqueda}`)
         return data
     } catch (error) {
         throw error
     }
 }
+
+// realizamos un get a la tabla productos
+// const obtenerProductos = async (busqueda) => {
+//     try {
+//         let {data} = await axios.get(URL_PROD)
+//         return data
+//     } catch (error) {
+//         throw error
+//     }
+// }
 
 // Funcion para crear los productos 
 const crearProductos = async (nuevoProducto)=>{
@@ -36,16 +47,6 @@ const obtenerProductosPorID = async (id) => {
     }
 }
 
-// Roberto Lista Productos 
-// const obtenerProductoPorId = async(id) => {
-//     try {
-//         let { data } = await axios.get(`${URL}/${id}`)
-//         return data
-//     } catch (error) {
-//         throw error
-//     }
-    
-// }
 
 const editarProducto = async (productoEditado, id )=> {
     try {
@@ -58,11 +59,30 @@ const editarProducto = async (productoEditado, id )=> {
     }
 }
 
+const subirArchivo =(imagen) =>{
+    return new Promise((resolve, reject)=>{
+        let refStorage = storage.ref(`gamestore/${imagen.name}`)
+        let tareaSubir = refStorage.put(imagen)
+        tareaSubir.on("state_changed",
+            ()=>{},
+            (error)=>{reject(error)},
+            // funcion para obtener la URL de la imagen
+            ()=>{
+             tareaSubir.snapshot.ref.getDownloadURL()
+             .then((urlImagen)=>{
+                resolve(urlImagen)
+             })
+            }
+        )
+    })
+}
+
 // Exportamos todas las tablas para ser utilizadas por los View o Components 
 export {
     obtenerProductos,
     crearProductos,
     obtenerProductosPorID,
-    editarProducto
+    editarProducto,
+    subirArchivo
     // obtenerProductoPorId
 }

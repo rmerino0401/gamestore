@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import Swal from "sweetalert2"
 
-import { editarProducto, obtenerProductosPorID } from "../services/productosService"
+import { editarProducto, obtenerProductosPorID, subirArchivo } from "../services/productosService"
 import FormProducto from "../components/FormProducto"
 
-
+let imagen
 
 export default function EditarProductoView() {
     
@@ -52,7 +52,12 @@ export default function EditarProductoView() {
 
     const manejarSubmit = async (e) => {
         e.preventDefault()
-        await editarProducto(value, id)
+        if(typeof imagen !== undefined){
+            const urlArchivo = await subirArchivo(imagen)
+            await editarProducto({...value, prod_img: urlArchivo}, id)
+        }else{
+            await editarProducto(value, id)
+        }
         await Swal.fire({
             icon:"success",
             title:"Producto editado con éxito",
@@ -62,11 +67,21 @@ export default function EditarProductoView() {
         history.push('/')
     }
 
+    const manejarImagen = (e)=>{
+        e.preventDefault()
+        // console.log(e.target.files)
+        imagen = e.target.files[0]
+    }
 
     return (
         <div>
             <h1>Editar Producto</h1>
-            <FormProducto value= {value} actualizarInput={actualizarInput} manejarSubmit={manejarSubmit} />
+            <h2>Agregar mas Style </h2>
+            <FormProducto 
+            value= {value} 
+            actualizarInput={actualizarInput} 
+            manejarSubmit={manejarSubmit}
+            manejarImagen={manejarImagen} />
         </div>
     )
 }
