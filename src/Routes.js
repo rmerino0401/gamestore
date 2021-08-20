@@ -5,6 +5,8 @@ import CrearProductoView from "./view/CrearProductoView"
 import EditarProductoView from "./view/EditarProductoView"
 import ProductoView from "./view/ProductoView"
 import PortadaView from "./view/PortadaView"
+import CarritoView from "./view/CarritoView"
+
 export default function Routes() {
     return (
         <div>
@@ -15,6 +17,7 @@ export default function Routes() {
             {/* // Rutas de Roberto */}
             <Route path="/" exact component={PortadaView} />
             <Route path="/detalle/:id" exact component={ProductoView} />
+            <Route path="/carrito" exact component={CarritoView} />
         
         </div>
     )
