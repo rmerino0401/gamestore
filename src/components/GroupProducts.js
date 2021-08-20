@@ -10,8 +10,13 @@ export default function GroupProducts({ productos}) {
         <div className="row mt-3">
           {productos.map((prod, i) => (
             <div className="col-6 col-lg-3" key={i}>
-              <Link className="card mb-4" to={`/detalle/${prod.prod_id}`}>
-                <img src={prod.prod_img} className="card-img-top" alt={prod.prod_nom} />
+              
+              <Link className="shadow p-3 mb-5 bg-white rounded border-0 card mb-4" to={`/detalle/${prod.prod_id}`}>
+                <img
+                  src={prod.prod_img}
+                  className="card-img-top"
+                  alt={prod.prod_nom}
+                />
                 <div className="card-body">
                   <h6 className="card-title">{prod.prod_nom}</h6>
                   <span className="fw-bold"> S/ {prod.prod_pre1}</span>

@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 import { obtenerProductosPorID } from '../services/productosService'
 import { useParams } from 'react-router-dom'
 import Loading from '../components/Loading'
+import Swal from 'sweetalert2'
+import { useHistory } from 'react-router'
 
 export default function ProductoView() {
     const [producto, setProducto] = useState([])
@@ -23,7 +25,7 @@ export default function ProductoView() {
      // Ejecutar el estado del producto 
      useEffect(()=>{
         getProducto()
-    },[])
+    }, [])
     
     return (
         <div>
@@ -55,3 +57,5 @@ export default function ProductoView() {
         </div>
     )
            }
+        //    la funcion 'anadirACarritoContext' se va a ejecutar cuando le demos clic al botón de añadir a carrito
+        // 
