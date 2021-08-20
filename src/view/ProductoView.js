@@ -1,7 +1,11 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import { CarritoContext } from '../context/carritoContext'
+
 import { obtenerProductosPorID } from '../services/productosService'
 import { useParams } from 'react-router-dom'
 import Loading from '../components/Loading'
+import Swal from "sweetalert2"
+import { useHistory } from 'react-router'
 
 export default function ProductoView() {
     const [producto, setProducto] = useState([])
@@ -9,6 +13,11 @@ export default function ProductoView() {
     const [cargando, setCargando] = useState(true)
     //Optenemos el ID del Producto
     const {id} = useParams()
+
+    const history = useHistory()
+    
+    const {anadirACarrito} = useContext(CarritoContext)
+
     //Extraemos los productos 
     const getProducto = async ()=>{
         try {
@@ -20,6 +29,24 @@ export default function ProductoView() {
             console.error(error)
         }
     }
+
+    const anadirACarritoContext = async () => {
+        anadirACarrito(producto)
+        const resultado = await Swal.fire({
+            icon:'success',
+            title:"Producto añadido!",
+            showConfirmButton:true,
+            showDenyButton:true,
+            confirmButtonText:'Seguir comprando',
+            denyButtonText:'Ir a carrito'
+        })
+        if(resultado.isConfirmed){
+            history.push('/')
+        }else if(resultado.isDenied){
+            history.push('/carrito')
+        }
+    }
+
      // Ejecutar el estado del producto 
      useEffect(()=>{
         getProducto()
@@ -47,6 +74,10 @@ export default function ProductoView() {
                                 <span className="fw-bold">
                                     S/ {producto.prod_pre1}
                                 </span> 
+
+                                <button className="btn btn-dark btn-lg" onClick={anadirACarritoContext}>
+                                    <i className="fas fa-shopping-cart me-2"></i>Añadir a Carrito
+                                </button>
                             </div>
                         </div>
                     </div>

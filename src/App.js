@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Switch } from "react-router-dom"
 import {Route} from "react-router-dom"
 import Routes from "./Routes"
 import NavTop from "./components/NavTop"
+import { AuthContextProvider } from "./context/authContext"
+import CarritoContextProvider  from "./context/carritoContext"
 
 export default function App() {
   return (
@@ -23,12 +25,16 @@ export default function App() {
 
 
         <Router>
-          <div className="container p-3">
-            <NavTop/>
-              <Switch>
-                <Routes/>
-              </Switch>
-          </div> 
+          <AuthContextProvider>
+            <CarritoContextProvider>
+            <div className="container p-3">
+              <NavTop/>
+                <Switch>
+                  <Routes/>
+                </Switch>
+            </div> 
+            </CarritoContextProvider>
+          </AuthContextProvider>
         </Router> 
   </div>
   )

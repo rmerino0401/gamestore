@@ -10,11 +10,14 @@ import CrearProductoView from "./view/CrearProductoView"
 import EditarProductoView from "./view/EditarProductoView"
 import InicioView from "./view/InicioView"
 import LoginView from "./view/LoginView"
+import ProtectedRoute from './components/ProtectedRoute'
+import CheckoutView from "./view/CheckoutView"
 
 // paginas Roberto
 import ProductoView from "./view/ProductoView"
 import PortadaView from "./view/PortadaView"
 import ProductosView from "./view/ProductosView"
+import CarritoView from "./view/CarritoView"
 
 export default function Routes() {
     return (
@@ -26,6 +29,9 @@ export default function Routes() {
 
             {/* Lado Administrativo */}
             <Route path="/login" exact component={LoginView} />
+            <ProtectedRoute path="/carrito" exact component={CarritoView} />
+            <ProtectedRoute path="/checkout" exact component={CheckoutView}/>
+            
             <div className="flex">
                 {/* <Sidebar />   */}
                 <div className="content w-100">
