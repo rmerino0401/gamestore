@@ -24,15 +24,16 @@ export default function NavTop() {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link ><Link to="/">Inicio</Link></Nav.Link>
-        <Nav.Link><Link to="/productos">Productos</Link></Nav.Link>
+        <Nav.Link ><Link className="nav-link texto" to="/">Inicio</Link></Nav.Link>
+        <Nav.Link><Link className="nav-link texto" to="/productos">Productos</Link></Nav.Link>
+        <Nav.Link><Link className="nav-link" to="">Accesorios</Link></Nav.Link>
+        {/* <Nav.Link href="#link">Accesorios</Nav.Link> */}
 
-        <Nav.Link><Link to="/Inicio">Admin</Link></Nav.Link>
+        {/* <Nav.Link><Link to="/Inicio">Admin</Link></Nav.Link> */}
         {/* <Nav.Link href="#link">Consolas</Nav.Link>
         <Nav.Link href="#link">Juegos</Nav.Link> */}
-        <Nav.Link href="#link">Accesorios</Nav.Link>
      
-        <NavDropdown title="Categorías" id="basic-nav-dropdown">
+        <NavDropdown className="nav-link"  title="Categorías" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Acción</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Aventura</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">lorem ipsum1</NavDropdown.Item>
