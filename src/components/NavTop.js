@@ -16,8 +16,8 @@ export default function NavTop() {
     }, 0);
     
     return (
-        <Navbar bg="light" expand="lg" sticky="top">
-  <Container>
+        <Navbar bg="light" fluid="lg" sticky="top" >
+  <Container >
     <Navbar.Brand href="#home">
     Gamestore
     </Navbar.Brand>
@@ -25,11 +25,12 @@ export default function NavTop() {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Nav.Link ><Link to="/">Inicio</Link></Nav.Link>
-        
-        <Nav.Link href="#link">Consolas</Nav.Link>
-        <Nav.Link href="#link">Juegos</Nav.Link>
-        <Nav.Link href="#link">Accesorios</Nav.Link>
         <Nav.Link><Link to="/productos">Productos</Link></Nav.Link>
+
+        <Nav.Link><Link to="/Inicio">Admin</Link></Nav.Link>
+        {/* <Nav.Link href="#link">Consolas</Nav.Link>
+        <Nav.Link href="#link">Juegos</Nav.Link> */}
+        <Nav.Link href="#link">Accesorios</Nav.Link>
      
         <NavDropdown title="Categorías" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Acción</NavDropdown.Item>
@@ -57,6 +58,8 @@ export default function NavTop() {
       </Nav>
 
       <Nav>
+    
+        
         
       <Nav.Link>
           <Link className="nav-link" to="/checkout">

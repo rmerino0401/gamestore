@@ -33,7 +33,8 @@ export default function Routes() {
             <ProtectedRoute path="/checkout" exact component={CheckoutView}/>
             
             <div className="flex">
-                {/* <Sidebar />   */}
+                {/* quitar el comentario cuando toque el lado administrativo */}
+                <Sidebar />  
                 <div className="content w-100">
                 {/* <NavbarHome /> */}
                     <Route path="/Inicio" exact component={InicioView}/>

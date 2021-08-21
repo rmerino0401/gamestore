@@ -5,13 +5,13 @@ import pic3 from "../assets/foto3.jpg";
 
 export default function CustomCarousel() {
   return (
-    <Carousel>
+    <Carousel >
       <Carousel.Item className="fade-carousel">
         <img className="d-block w-100 "
         src={pic1}
         alt="Primer slide" />
         <Carousel.Caption>
-          <h3>Primer slide label</h3>
+          <h3>JUEGOS, CONSOLAS Y MÁS...</h3>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -20,14 +20,14 @@ export default function CustomCarousel() {
         src={pic2}
         alt="segundo slide" />
         <Carousel.Caption>
-          <h3>Segundo slide label</h3>
+          <h3>LA TIENDA GAMER MÁS COMPLETA DEL PERÚ</h3>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item>
         <img className="d-block w-100"
         src={pic3}
-        alt="tercer slide" />
+        alt="OFFLINE GAMER STORE"/>
         <Carousel.Caption>
           <h3>Tercer slide label</h3>
         </Carousel.Caption>
