@@ -29,6 +29,7 @@ export default function NavTop() {
         <Nav.Link href="#link">Consolas</Nav.Link>
         <Nav.Link href="#link">Juegos</Nav.Link>
         <Nav.Link href="#link">Accesorios</Nav.Link>
+        <Nav.Link><Link to="/Inicio">Administrador</Link></Nav.Link>
         <Nav.Link><Link to="/productos">Productos</Link></Nav.Link>
      
         <NavDropdown title="Categorías" id="basic-nav-dropdown">

@@ -32,16 +32,16 @@ export default function Routes() {
             <ProtectedRoute path="/carrito" exact component={CarritoView} />
             <ProtectedRoute path="/checkout" exact component={CheckoutView}/>
             
-            <div className="flex">
-                {/* <Sidebar />   */}
+            {/* <div className="flex">
+                <Sidebar />  
                 <div className="content w-100">
-                {/* <NavbarHome /> */}
+                <NavbarHome />
                     <Route path="/Inicio" exact component={InicioView}/>
                     <Route path="/List" exact component={ListaProductosView}/>
                     <Route path="/new" exact component={CrearProductoView}/>
                     <Route path="/update/:id" exact component={EditarProductoView}/>
                 </div>
-            </div> 
+            </div>  */}
 
         </div>
     )
