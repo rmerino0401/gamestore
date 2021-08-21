@@ -7,7 +7,10 @@ export default function FormProducto({value, actualizarInput, manejarSubmit, man
         <div>
             <form onSubmit={(e)=>{manejarSubmit(e)}}>
                 <div className="mb-3"><label className="form-label">Nombre: <input type="text" className="form-control" name="prod_nom" value={value.prod_nom} onChange={(e) => {actualizarInput(e)}} /></label></div>    
-                <div className="mb-3"><label className="form-label">Descripción: <input type="text" className="form-control" name="prod_desc" value={value.prod_desc} onChange={(e) => {actualizarInput(e)}} /></label></div>       
+                <div className="mb-3"><label className="form-label">Descripción: 
+                <textarea name="prod_desc" className="form-control" rows="5" cols="60" value={value.prod_desc} onChange={(e) => {actualizarInput(e)}}></textarea>
+                {/* <input type="text" className="form-control" name="prod_desc" value={value.prod_desc} onChange={(e) => {actualizarInput(e)}} /> */}
+                </label></div>       
                 <div className="mb-3"><label className="form-label">Categoria:<input type="text" className="form-control" name="prod_cat" value={value.prod_cat} onChange={(e) => {actualizarInput(e)}} /></label></div>       
                 <div className="mb-3"><label className="form-label">Clase:<input type="text" className="form-control" name="prod_cla" value={value.prod_cla} onChange={(e) => {actualizarInput(e)}} /></label></div>       
                 <div className="mb-3"><label className="form-label">Stock:<input type="number" className="form-control" name="prod_stock" value={value.prod_stock} onChange={(e) => {actualizarInput(e)}} /></label></div>       

@@ -82,8 +82,6 @@ export default function EditarProductoView() {
             actualizarInput={actualizarInput} 
             manejarSubmit={manejarSubmit}
             manejarImagen={manejarImagen} />
-
-
         </div>
     )
 }

@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+$color1:#ffffff ;
+$borde:skyblue;
+
+.flex{
+    display: flex;
+}
+
+.Navbar-2{
+    background-color: $color1;
+    padding:1rem 2rem;
+    border-bottom: 1px solid $borde;
+}
+
+.sidebar{
+    width: 16rem;
+    height: calc(100vh - 52px);
+    border-right: 1px solid $borde;
+    ul {
+        list-style: none;
+        padding: 1rem 2rem;
+        li {
+            margin-bottom: 1rem;
+            a {
+                text-decoration: none;
+                &.active{
+                    background-color: #dce4ff;
+                }
+            }
+        }
+    }
+}
+
+.contenedor{
+    margin: 30px;
+}
+
+.lugar{
+    position: relative;
+}
+
+
+
+// Iconos de Home
+
+:root {
+    --main-text-color: #009d63;
+    --second-bg-color: #c1efde;
+  }
+
+  .primary-text {
+    color: var(--main-text-color);
+  }
+
+  .secondary-bg {
+    background-color: var(--second-bg-color);
+  }
+  
+  .rounded-full {
+    border-radius: 100%;
+  }
+
+.dash1{
+    margin-bottom: 30px;
+}
+
+.dash2{
+    margin-bottom: 40px;
+}
+.dash3{
+    margin-bottom: 40px;
+}
+
+// .tm{
+//     // width: 100%;
+//     // height: 100%;
+// }
+
+.car1{
+    display: flex;
+    // Fila 
+    justify-content: center;
+    //Columna
+    align-items:center;
+    margin: 10px;
+}
+
+.car2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+
+
+.init{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px ;
+    border-right: 1px solid $borde;
+}
+
+.car3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.car4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
