@@ -68,7 +68,7 @@ export default function ListaProductosView() {
                 </tbody>
             </table>
 
-            <ButtonToolbar aria-label="Toolbar with button groups">
+            {/* <ButtonToolbar aria-label="Toolbar with button groups">
                 <ButtonGroup className="me-2" aria-label="First group">
                     <Button>1</Button> 
                     <Button>2</Button> 
@@ -77,7 +77,7 @@ export default function ListaProductosView() {
                 </ButtonGroup>
 
             </ButtonToolbar>
-            
+             */}
 
         </div>
     )
