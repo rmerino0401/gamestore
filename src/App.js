@@ -30,7 +30,6 @@ export default function App() {
           </div> 
         </Router>
 
-
         {/* <Router>
           <div className="container p-3">
             <NavTop/>
