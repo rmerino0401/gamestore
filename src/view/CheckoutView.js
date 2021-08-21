@@ -1,40 +1,41 @@
 import { useState, useContext } from "react";
 import { CarritoContext } from "../context/carritoContext";
-// import { useForm } from "react-hook-form";
-// import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet"
-// import L from "leaflet"
+import { useForm } from "react-hook-form";
+import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet"
+import L from "leaflet"
 
 
 export default function CheckoutView() {
-    // const [marcador, setMarcador] = useState([-12.0433, -77.0283])
+    const [marcador, setMarcador] = useState([-12.0433, -77.0283])
 	const { carrito } = useContext(CarritoContext);
 
-	// const {
-	// 	register,
-	// 	handleSubmit,
-	// 	formState: { errors },
-	// } = useForm();
+	let total = 0;
 
-    // const AddMarker = () => {
-    //     const map = useMapEvents({
-    //         click: (e) => {
-    //             console.log(e)
-    //             const {lat, lng} = e.latlng
-    //             setMarcador([lat, lng])
-    //         }
-    //     })
-    //     return null
-    // }
+	total = carrito.reduce((acum, item) => {
+		return acum + item.cantidad * item.prod_pre1;
+	}, 0);
 
-	// let total = 0;
+	// Formulario del cliente
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 
-	// total = carrito.reduce((acum, item) => {
-	// 	return acum + item.cantidad * item.prod_precio;
-	// }, 0);
+    const AddMarker = () => {
+        const map = useMapEvents({
+            click: (e) => {
+                console.log(e)
+                const {lat, lng} = e.latlng
+                setMarcador([lat, lng])
+            }
+        })
+        return null
+    }
 
-	// const recibirSubmit = (datos) => {
-	// 	console.log(datos);
-	// };
+	const recibirSubmit = (datos) => {
+		console.log(datos);
+	};
 
 	return (
 		<div className="container mt-4">
@@ -61,7 +62,7 @@ export default function CheckoutView() {
 							</li>
 						))}
 
-						{/* {total !== 0 ? (
+						{total !== 0 ? (
 							<li className="list-group-item d-flex justify-content-between">
 								<span className="fw-bold">TOTAL:</span>
 								<span>S/ {total}</span>
@@ -70,11 +71,13 @@ export default function CheckoutView() {
 							<li className="list-group-item">
 								Todavía no ha agregado ningún producto.
 							</li>
-						)} */}
+						)}
 					</ul>
 				</div>
 
-				{/* <div className="col-sm-12 col-md-6">
+				{/* Datos del Cliente */}
+				
+				<div className="col-sm-12 col-md-4">
 					<h4>Ingrese sus datos:</h4>
 
 					<form onSubmit={handleSubmit(recibirSubmit)}>
@@ -83,7 +86,7 @@ export default function CheckoutView() {
 							<input
 								type="text"
 								className="form-control"
-								placeholder="Ej. Juan Perez"
+								placeholder="Ej. Nombre"
 								//{...register("nombre", {validaciones})}
 								{...register("nombreCompleto", { required: true })}
 							/>
@@ -96,7 +99,7 @@ export default function CheckoutView() {
 							<input
 								type="text"
 								className="form-control"
-								placeholder="Ej. +51 926707653"
+								placeholder="Ej. +51 000000000"
 								{...register("telefono", {
 									minLength: { value: 6, message: "Se requiere 6 dígitos" },
                                     maxLength: { value: 14, message: "Máximo 14 dígitos"}
@@ -111,7 +114,7 @@ export default function CheckoutView() {
 							<input
 								type="text"
 								className="form-control"
-								placeholder="Ej. Urb. Yanahuara S/N"
+								placeholder="Ej. Urb. Junin S/N"
                                 {...register("direccion", {pattern: /^[A-Za-z]$/})}
 							/>
                             {errors.direccion && (
@@ -137,7 +140,7 @@ export default function CheckoutView() {
 							Confirmar Compra
 						</button>
 					</form>
-				</div> */}
+				</div>
 			</div>
 		</div>
 	);

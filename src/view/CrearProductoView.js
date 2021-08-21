@@ -49,7 +49,6 @@ export default function CrearProductoView() {
 
     const manejarImagen = (e)=>{
         e.preventDefault()
-        // console.log(e.target.files)
         imagen = e.target.files[0]
     }
 

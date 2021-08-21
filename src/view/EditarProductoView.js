@@ -76,7 +76,7 @@ export default function EditarProductoView() {
     return (
         <div>
             <h1>Editar Producto</h1>
-            <h2>Agregar mas Style </h2>
+            
             <FormProducto 
             value= {value} 
             actualizarInput={actualizarInput} 

@@ -3,12 +3,12 @@ import {Route} from "react-router-dom" // La desestructuración de los atributos
 
 // Paginas Victor
 import './App.scss'
-import NavbarHome from "./components/Navbar"
-import Sidebar from "./components/Sidebar"
-import ListaProductosView from "./view/ListaProductosView"
-import CrearProductoView from "./view/CrearProductoView"
-import EditarProductoView from "./view/EditarProductoView"
-import InicioView from "./view/InicioView"
+// import NavbarHome from "./components/Navbar"
+// import Sidebar from "./components/Sidebar"
+// import ListaProductosView from "./view/ListaProductosView"
+// import CrearProductoView from "./view/CrearProductoView"
+// import EditarProductoView from "./view/EditarProductoView"
+// import InicioView from "./view/InicioView"
 import LoginView from "./view/LoginView"
 import ProtectedRoute from './components/ProtectedRoute'
 import CheckoutView from "./view/CheckoutView"
@@ -27,22 +27,21 @@ export default function Routes() {
             <Route path="/detalle/:id" exact component={ProductoView} />
             <Route path="/productos" exact component={ProductosView} />
 
-            {/* Lado Administrativo */}
+            {/* Lado Usuario */}
             <Route path="/login" exact component={LoginView} />
             <ProtectedRoute path="/carrito" exact component={CarritoView} />
             <ProtectedRoute path="/checkout" exact component={CheckoutView}/>
             
-            <div className="flex">
-                {/* quitar el comentario cuando toque el lado administrativo */}
+            {/* <div className="flex">
                 <Sidebar />  
                 <div className="content w-100">
-                {/* <NavbarHome /> */}
+                <NavbarHome />
                     <Route path="/Inicio" exact component={InicioView}/>
                     <Route path="/List" exact component={ListaProductosView}/>
                     <Route path="/new" exact component={CrearProductoView}/>
                     <Route path="/update/:id" exact component={EditarProductoView}/>
                 </div>
-            </div> 
+            </div>  */}
 
         </div>
     )

@@ -47,7 +47,6 @@ const obtenerProductosPorID = async (id) => {
     }
 }
 
-
 const editarProducto = async (productoEditado, id )=> {
     try {
         const headers = {
@@ -58,6 +57,7 @@ const editarProducto = async (productoEditado, id )=> {
         throw error
     }
 }
+
 
 const subirArchivo =(imagen) =>{
     return new Promise((resolve, reject)=>{
